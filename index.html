@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="py-5 d-flex justify-content-center align-items-center">
+        <h1>Bookmarker</h1>
+      </div>
+      <div
+        class="data w-100 d-flex justify-content-center align-items-center flex-column ps-3 pe-3"
+      >
+        <h2 class="title text-center mb-2 pt-4">
+          <i class="fa-solid fa-bookmark"></i>
+          Bookmark your favorite sites
+          <i class="fa-solid fa-bookmark"></i>
+        </h2>
+        <div
+          class="w-100 d-flex justify-content-start align-items-start flex-column"
+        >
+          <label for="" class="pb-2 mt-4"
+            ><i class="fa-solid fa-book-bookmark text-start pe-2"></i>Site
+            Name</label
+          >
+          <input
+            oninput="validationName()"
+            type="text"
+            class="form-control"
+            placeholder="Bookmark Name"
+            id="siteName"
+          />
+          <label class="pb-2 mt-4" for=""
+            ><i class="fa-solid fa-link pe-2"></i> Site URL</label
+          >
+          <input
+            type="url"
+            oninput="validationUrl()"
+            class="form-control"
+            placeholder="Website URL"
+            id="siteUrl"
+          />
+        </div>
+        <div>
+          <button
+            id="btnSubmit"
+            onclick="submit()"
+            class="btn btn-submit px-5 mt-4 mb-4"
+          >
+            Submit
+          </button>
+          <button
+            id="btnUpdate"
+            onclick="updateItem()"
+            class="btn btn-submit bg-primary border-primary px-5 mt-4 mb-4 d-none"
+          >
+            Update
+          </button>
+          <!-- <button type="button" onclick="clear()" class="btn btn-submit px-5 mt-4 mb-4">Clear</button> -->
+        </div>
+      </div>
+      <div>
+        <input
+          type="search"
+          oninput="searchData()"
+          class="form-control w-50 mx-auto mt-4"
+          placeholder="Search By site Name...."
+          id="searchInput"
+        />
+      </div>
+
+      <table class="table text-center align-middle mt-4">
+        <thead>
+          <th>index</th>
+          <th>Website Name</th>
+          <th>visit</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </thead>
+        <tbody id="myTable">
+          <!-- <tr>
+                <td>1</td>
+                <td>facebook</td>
+                <td>
+                  <a href=""> <button class="visit btn"><i class="fa-regular fa-eye"></i> Visit</button></a>
+                 </td>
+                <td><button class="update btn btn-warning"><i class="fa-solid fa-arrow-up-from-bracket"></i> update</button></td>
+                <td><button class="delete btn btn-danger"><i class="fa-solid fa-trash-can"></i> delete</button></td>
+            </tr> -->
+        </tbody>
+      </table>
+
+      <div id="msgName"
+        class="box-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none"
+      >
+        <div class="box-conent bg-white p-4 rounded-2 shadow-lg">
+          <header
+            class="box-header w-100 d-flex justify-content-between align-items-center mb-4"
+          >
+            <div class="circles d-flex">
+              <span class="rounded-circle me-2"></span>
+              <span class="rounded-circle me-2"></span>
+              <span class="rounded-circle me-2"></span>
+            </div>
+            <button class="btn border-0" id="closeBtn">
+              <i class="fa-solid fa-xmark close fs-3"></i>
+            </button>
+          </header>
+          <p class="m-0 pb-2">
+            Site Name or Url is not valid, Please follow the rules below :
+          </p>
+          <ol class="rules list-unstyled m-0">
+            <li>
+              <i class="fa-regular fa-circle-right p-2"></i>Site name must
+              contain at least 3 characters
+            </li>
+            <li>
+              <i class="fa-regular fa-circle-right p-2"></i>Site URL must be a
+              valid one
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
